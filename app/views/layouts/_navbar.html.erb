@@ -1,0 +1,67 @@
+<!--  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+    </div>
+    <ul class="nav navbar-nav" id="myNavbar">
+      
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+   
+    </ul>
+  </div> -->
+
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to '<i class="glyphicon glyphicon-book"></i> Little Pig Book Club'.html_safe, root_url, class:"navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li><a href="">Hello: <strong><%= current_user.email %></strong></a></li>
+          <li<% if current_page?(root_url) %> class="active" <% end %>><a href="/">Home</a></li>
+          <li><a href="#">Page 1</a></li>
+          <li><a href="#">Page 2</a></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if !user_signed_in? %>
+          <li><%= link_to '<i class="glyphicon glyphicon-log-in"></i> Login'.html_safe, new_user_session_path %> </li>   
+          <li><%= link_to '<i class="glyphicon glyphicon-pencil"></i> Sign Up'.html_safe, new_user_registration_path %> </li>
+         <% else %>
+          <li <% if current_page?(edit_user_registration_path) %> class="active" <% end %>><%= link_to '<i class="glyphicon glyphicon-cog"></i> Account Settings'.html_safe, edit_user_registration_path %> </li>
+          <li><%= link_to('<i class="glyphicon glyphicon-log-out"></i> Log Out'.html_safe, destroy_user_session_path, :method => :delete) %></li>
+         <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+  <!-- Notifications -->
+    <% if notice %> 
+    <div class="alert alert-info alert-dismissable text-center col-xs-8 col-xs-offset-2">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong><span class="notice"><%= notice %></span></strong> 
+    </div> 
+  <% elsif alert %>
+    <div class="alert alert-info alert-dismissable text-center col-xs-8 col-xs-offset-2">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong><span class="alert"><%= alert %></span></strong>
+    </div>
+  <% end %>
+
+</nav>
+
+
+
