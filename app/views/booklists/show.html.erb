@@ -1,0 +1,41 @@
+<div class="container"> 
+  <div class="col-xs-6 col-xs-offset-3">  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <p class="text-center">
+          <h3><%= @booklist.title %>
+          <%= link_to 'Edit', edit_booklist_path(@booklist), class:"btn btn-xs btn-warning" %> 
+          <%= link_to 'Back', booklists_path, class:"btn btn-xs btn-danger" %>
+          </h3>
+        </p>
+      </div>
+      <div class="panel-body row">
+        <p>
+          <strong class="text-primary col-xs-2">Isbn:</strong>
+          <%= @booklist.ISBN %>
+        </p>
+
+        <p>
+          <strong class="text-primary col-xs-2">Genre:</strong>
+          <%= @booklist.genre %>
+        </p>
+
+        <p>
+          <strong class="text-primary col-xs-2">Author:</strong>
+          <%= @booklist.author %>
+        </p>
+
+        <p>
+          <strong class="text-primary col-xs-2">Pages:</strong>
+          <%= @booklist.pages %>
+        </p>
+
+        <p>
+          <strong class="text-primary col-xs-2">Year:</strong>
+          <%= @booklist.year %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+

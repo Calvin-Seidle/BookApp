@@ -15,3 +15,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+    $("#logout").click(function(){
+        $("#body").addClass("animated hinge");
+    });
+});

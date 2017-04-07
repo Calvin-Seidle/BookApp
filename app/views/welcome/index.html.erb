@@ -25,8 +25,6 @@
 			color: white;
 			font-weight: bold;
 		}
-
-
 	</style>
 	<div class="text-center">
 		<h1>Welcome</h1>
@@ -41,21 +39,53 @@
 		</p>	
 	</div>
 <% else %>
-	<style>
+		<style>
+		body { /*background image*/
+			background: 
+			linear-gradient(
+				rgba(0,0,0, 0.5),
+				rgba(0,0,0, 0.5)),	
+			url("bg.jpeg") no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}	
+		.footer {
+			color: white;
+			font-weight: bold;
+		}
+		h1 {
+			color: white;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+
+		h3 {
+			color: white;
+			font-weight: bold;
+		}
+
 		p {
+			color: white;
+			font-weight: bold;
 		    text-align: justify;
 		    text-justify: inter-word;
 		}
 	</style>
-	<div class="jumbotron text-center">
-		<h1>WELCOME</h1>
+	<div class="text-center">
+		<h1>WELCOME to Little Pig Book Club </h1>
+		<hr>
 	</div>
-	  <div class="container well">
+
+	<div class="row text-center">
+		<div class="col-xs-4 col-xs-offset-4">
+			<%= link_to 'See our Booklist', booklists_path, class:"btn btn-info btn-block" %>
+		</div> 
+	</div><br><br>
+	<div class="container">
 		<p>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec velit vitae risus imperdiet venenatis vel vitae lorem. Nullam vitae scelerisque ante, vel accumsan leo. Suspendisse condimentum sapien diam, eu volutpat dui ultrices in. Aliquam a molestie felis. Nam elementum risus ut magna lacinia, sit amet semper dui consequat. Fusce quis mauris vel turpis luctus ultricies. Donec felis nulla, malesuada nec nisi sed, iaculis dignissim sapien. Vestibulum sed nisi in odio mollis ultrices at eget tellus. Aliquam erat volutpat. Aenean eu neque quis augue commodo lobortis. Cras sodales ac quam id aliquet. Phasellus at massa eget mi sollicitudin ultrices et sit amet urna. Morbi faucibus tellus arcu, id rhoncus neque interdum consequat. 
 		</p>
-		<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec velit vitae risus imperdiet venenatis vel vitae lorem. Nullam vitae scelerisque ante, vel accumsan leo. Suspendisse condimentum sapien diam, eu volutpat dui ultrices in. Aliquam a molestie felis. Nam elementum risus ut magna lacinia, sit amet semper dui consequat. Fusce quis mauris vel turpis luctus ultricies. Donec felis nulla, malesuada nec nisi sed, iaculis dignissim sapien. Vestibulum sed nisi in odio mollis ultrices at eget tellus. Aliquam erat volutpat. Aenean eu neque quis augue commodo lobortis. Cras sodales ac quam id aliquet. Phasellus at massa eget mi sollicitudin ultrices et sit amet urna. Morbi faucibus tellus arcu, id rhoncus neque interdum consequat. 
-		</p>
-	  </div>	
+	</div>	
 <% end %>

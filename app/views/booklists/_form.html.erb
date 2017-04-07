@@ -1,0 +1,51 @@
+<%= form_for(booklist) do |f| %>
+  <% if booklist.errors.any? %>
+    <!-- <div id="error_explanation"> -->
+    <div class="alert alert-danger alert-dismissable fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>
+        <h4><%= pluralize(booklist.errors.count, "error") %> prohibited this booklist from being saved:</h4>
+      </strong>
+      <ol>
+      <% booklist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ol>
+    </div>  
+    <!-- </div> -->
+  <% end %>
+
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= f.label :ISBN %>
+    <%= f.text_field :ISBN, class:"form-control" %>
+  </div>
+
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= f.label :genre %>
+    <%= f.text_field :genre, class:"form-control" %>
+  </div>
+
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= f.label :title %>
+    <%= f.text_field :title, class:"form-control" %>
+  </div>
+
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= f.label :author %>
+    <%= f.text_field :author, class:"form-control" %>
+  </div>
+
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= f.label :pages %>
+    <%= f.number_field :pages, class:"form-control" %>
+  </div>
+
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= f.label :year %>
+    <%= f.number_field :year, class:"form-control" %>
+  </div>
+
+  <div class="actions col-xs-8 col-xs-offset-2">
+    <%= f.submit "Add", class:"btn btn-primary btn-block" %>
+  </div>
+<% end %>
