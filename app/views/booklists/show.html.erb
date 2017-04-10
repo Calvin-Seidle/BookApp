@@ -1,6 +1,6 @@
 <div class="container"> 
   <div class="col-xs-6 col-xs-offset-3">  
-    <div class="panel panel-default">
+    <div class="panel panel-info">
       <div class="panel-heading">
         <p class="text-center">
           <h3><%= @booklist.title %>
@@ -9,31 +9,41 @@
           </h3>
         </p>
       </div>
-      <div class="panel-body row">
-        <p>
-          <strong class="text-primary col-xs-2">Isbn:</strong>
-          <%= @booklist.ISBN %>
-        </p>
+      <div class="panel-body">
+        <div class="row">
+          <p class="col-xs-6"> 
+            <%= image_tag @booklist.image.url(:medium) %>
+          </p>
+          <p class="col-xs-6">
+            <strong class="text-primary"><h4>Isbn:</h4></strong>
+            <span class="col-xs-6"><%= @booklist.ISBN %></span>
+          </p>
 
-        <p>
-          <strong class="text-primary col-xs-2">Genre:</strong>
-          <%= @booklist.genre %>
-        </p>
+          <p class="col-xs-6">
+            <strong class="text-primary"><h4>Genre:</h4></strong>
+            <span class="col-xs-6"><%= @booklist.genre %></span>
+          </p>
 
-        <p>
-          <strong class="text-primary col-xs-2">Author:</strong>
-          <%= @booklist.author %>
-        </p>
+          <p class="col-xs-6">
+            <strong class="text-primary"><h4>Author:</h4></strong>
+            <span class="col-xs-6"><%= @booklist.author %></span>
+          </p>
 
-        <p>
-          <strong class="text-primary col-xs-2">Pages:</strong>
-          <%= @booklist.pages %>
-        </p>
+          <p class="col-xs-6">
+            <strong class="text-primary"><h4>Pages:</h4></strong>
+            <span class="col-xs-6"><%= @booklist.pages %></span>
+          </p>
 
-        <p>
-          <strong class="text-primary col-xs-2">Year:</strong>
-          <%= @booklist.year %>
-        </p>
+          <p class="col-xs-6">
+            <strong class="text-primary"><h4>Year:</h4></strong>
+            <span class="col-xs-6"><%= @booklist.year %></span>
+          </p>
+
+          <p class="col-xs-6">
+            <strong class="text-primary"><h4>Date Added:</h4></strong>
+            <span class="col-xs-6"><%= @booklist.created_at.to_formatted_s(:short) %></span>
+          </p>
+        </div>  
       </div>
     </div>
   </div>
