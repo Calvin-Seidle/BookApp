@@ -14,7 +14,7 @@
           <li><a href="">Hello <strong><%= current_user.email %></strong></a></li>
           <li<% if current_page?(root_url) %> class="active" <% end %>><a href="/">Home</a></li>
           <li<% if current_page?(booklists_path) %> class="active"<% end %>><a href="/booklists">Booklist</a></li>
-          <li><a href="#">Page 2</a></li>
+          <!-- <li><a href="#">Page 2</a></li> -->
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -22,12 +22,14 @@
           <li><%= link_to '<i class="glyphicon glyphicon-log-in"></i> Login'.html_safe, new_user_session_path %> </li>   
           <li><%= link_to '<i class="glyphicon glyphicon-pencil"></i> Sign Up'.html_safe, new_user_registration_path %> </li>
          <% else %>
+          <% if current_page?(booklists_path) %>
            <form class="navbar-form navbar-left" role="search">
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
               </div>
               <button type="submit" class="btn btn-primary">Search</button>
             </form>
+          <% end %>  
           <li <% if current_page?(edit_user_registration_path) %> class="active" <% end %>><%= link_to '<i class="glyphicon glyphicon-cog"></i> Account Settings'.html_safe, edit_user_registration_path %> </li>
           <li><%= link_to('<i id="logout" class="glyphicon glyphicon-log-out"></i> Log Out'.html_safe, destroy_user_session_path, :method => :delete) %></li>
          <% end %>

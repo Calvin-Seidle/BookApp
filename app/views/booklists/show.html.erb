@@ -44,6 +44,13 @@
             <span class="col-xs-6"><%= @booklist.created_at.to_formatted_s(:short) %></span>
           </p>
         </div>  
+        <% if @booklist.comments.any? %>
+          <span class="text-primary text-center"><h3><%= @booklist.comments.count %> Comment(s)</h3></span>
+        <% end %>
+      </div>
+      <div class="panel-body">
+        <%= render @booklist.comments %>
+        <%= render "comments/form" %>
       </div>
     </div>
   </div>

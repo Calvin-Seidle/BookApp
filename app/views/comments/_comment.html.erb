@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+	<p class="panel-heading">
+		<%= time_ago_in_words(comment.created_at) %> Ago
+	</p>
+	<p class="panel-body">
+		<span style="text-transform: uppercase; font-size: 25px;"><%= comment.name %></span><br>
+
+		<%= comment.body %>
+	</p>
+
+</div>

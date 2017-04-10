@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :booklists
+  resources :booklists do
+  	resources :comments
+  end	
+
   devise_for :users
   get 'welcome/index'
 

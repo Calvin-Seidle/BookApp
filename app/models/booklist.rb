@@ -1,4 +1,5 @@
 class Booklist < ApplicationRecord
+	has_many :comments
 	validates :ISBN, presence: true
 	validates :genre, presence: true
 	validates :title, presence: true
