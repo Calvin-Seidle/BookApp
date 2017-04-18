@@ -2,52 +2,60 @@
   <div class="col-xs-6 col-xs-offset-3">  
     <div class="panel panel-info">
       <div class="panel-heading">
-        <p class="text-center">
+        <div class="text-center">
           <h3><%= @booklist.title %>
           <%= link_to 'Edit', edit_booklist_path(@booklist), class:"btn btn-xs btn-warning" %> 
           <%= link_to 'Back', booklists_path, class:"btn btn-xs btn-danger" %>
           </h3>
-        </p>
+        </div>
       </div>
       <div class="panel-body">
-        <div class="row">
-          <p class="col-xs-6"> 
-            <%= image_tag @booklist.image.url(:medium) %>
-          </p>
-          <p class="col-xs-6">
-            <strong class="text-primary"><h4>Isbn:</h4></strong>
-            <span class="col-xs-6"><%= @booklist.ISBN %></span>
-          </p>
+        <div class="col-xs-6 image"> 
+          <%= image_tag @booklist.image.url(:medium) %>
+        </div>
+        <div class="col-xs-6">
+          <strong class="text-primary"><h4>Isbn:</h4></strong>
+          <span><%= @booklist.ISBN %></span>
+        </div>
 
-          <p class="col-xs-6">
-            <strong class="text-primary"><h4>Genre:</h4></strong>
-            <span class="col-xs-6"><%= @booklist.genre %></span>
-          </p>
+        <div class="col-xs-6">
+          <strong class="text-primary"><h4>Genre:</h4></strong>
+          <span><%= @booklist.genre %></span>
+        </div>
 
-          <p class="col-xs-6">
-            <strong class="text-primary"><h4>Author:</h4></strong>
-            <span class="col-xs-6"><%= @booklist.author %></span>
-          </p>
+        <div class="col-xs-6">
+          <strong class="text-primary"><h4>Author:</h4></strong>
+          <span><%= @booklist.author %></span>
+        </div>
 
-          <p class="col-xs-6">
-            <strong class="text-primary"><h4>Pages:</h4></strong>
-            <span class="col-xs-6"><%= @booklist.pages %></span>
-          </p>
+        <div class="col-xs-6">
+          <strong class="text-primary"><h4>Pages:</h4></strong>
+          <span><%= @booklist.pages %></span>
+        </div>
 
-          <p class="col-xs-6">
-            <strong class="text-primary"><h4>Year:</h4></strong>
-            <span class="col-xs-6"><%= @booklist.year %></span>
-          </p>
-
-          <p class="col-xs-6">
-            <strong class="text-primary"><h4>Date Added:</h4></strong>
-            <span class="col-xs-6"><%= @booklist.created_at.to_formatted_s(:short) %></span>
-          </p>
-        </div>  
-        <% if @booklist.comments.any? %>
-          <span class="text-primary text-center"><h3><%= @booklist.comments.count %> Comment(s)</h3></span>
-        <% end %>
+      <div class="row">
+        <div class="col-xs-6">
+          <strong class="text-primary"><h4>Year:</h4></strong>
+          <span><%= @booklist.year %></span>
+        </div>
       </div>
+
+      <div class="row">
+        <div class="col-xs-6">
+          <strong class="text-primary"><h4>Date Added:</h4></strong>
+          <span><%= @booklist.created_at.to_formatted_s(:short) %></span>
+        </div> 
+      </div>
+
+    <% if @booklist.comments.any? %>
+      <div class="well">
+        <span class="text-primary text-center">
+          <h3><%= @booklist.comments.count %> Comment(s)</h3>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
       <div class="panel-body">
         <%= render @booklist.comments %>
         <%= render "comments/form" %>

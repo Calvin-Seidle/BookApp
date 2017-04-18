@@ -1,11 +1,12 @@
 <div class="panel panel-default">
-	<p class="panel-heading">
-		<%= time_ago_in_words(comment.created_at) %> Ago
-	</p>
-	<p class="panel-body">
+	<div class="panel-heading">
+		<%= time_ago_in_words(comment.created_at) %> Ago <%= link_to 'Delete', [comment.booklist, comment], method: :delete, class:"btn btn-danger btn-xs", data: {confirm: 'Are you sure?'} %> 
+	</div>
+	<div class="panel-body">
 		<span style="text-transform: uppercase; font-size: 25px;"><%= comment.name %></span><br>
-
 		<%= comment.body %>
-	</p>
-
+		<center>
+		
+		</center>&nbsp;
+	</div>
 </div>

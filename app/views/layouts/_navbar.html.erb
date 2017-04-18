@@ -13,8 +13,8 @@
         <% if user_signed_in? %>
           <li><a href="">Hello <strong><%= current_user.email %></strong></a></li>
           <li<% if current_page?(root_url) %> class="active" <% end %>><a href="/">Home</a></li>
-          <li<% if current_page?(booklists_path) %> class="active"<% end %>><a href="/booklists">Booklist</a></li>
-          <!-- <li><a href="#">Page 2</a></li> -->
+          <li<% if current_page?(booklists_path) %> class="active"<% end %>><a href="/booklists">All Books</a></li>
+          <li><a href="#">Available Books</a></li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">

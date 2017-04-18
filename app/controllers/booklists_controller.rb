@@ -3,6 +3,7 @@ class BooklistsController < ApplicationController
 
   # GET /booklists
   def index
+    # @booklists = Booklist.where(["name LIKE?","%#{params[:search]}%"])
     @booklists = Booklist.all
     @booklists = Booklist.paginate(:page => params[:page], :per_page => 10)
   end
