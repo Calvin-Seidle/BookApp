@@ -1,5 +1,6 @@
 class Booklist < ApplicationRecord
 	has_many :comments, dependent: :destroy
+	acts_as_bookable
 
 	validates :ISBN, presence: true
 	validates :genre, presence: true

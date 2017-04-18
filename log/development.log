@@ -29804,3 +29804,757 @@ puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
   Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
   Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (138.8ms)
+Started GET "/" for 127.0.0.1 at 2017-04-18 10:18:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (58.3ms)
+  Rendered layouts/_navbar.html.erb (4.0ms)
+Completed 200 OK in 770ms (Views: 746.3ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-04-18 10:18:52 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jACkafZbMEQHgKo8Bd7iVVTxUGfrRz1Zx5Of/cg9uHT6mpJvKr8NJoIjvVMo/uAgvhChzy3AbWEEbBL56tzQig=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 47ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-18 10:18:53 +0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (15.0ms)
+  Rendered layouts/_navbar.html.erb (5.3ms)
+Completed 200 OK in 253ms (Views: 249.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-18 10:18:58 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (8.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (138.3ms)
+  Rendered layouts/_navbar.html.erb (3.3ms)
+Completed 200 OK in 381ms (Views: 355.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-04-18 10:19:02 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lq8Kv9pt9e9DmPrsVQqXhlPEzYEogIIYBkLCB1Z/ldTO+CnGSBtEz/B2kYePDv7Ore2mcBZIatb2mcM/9c34qQ==", "user"=>{"email"=>"calvin@littlepig.cc", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "calvin@littlepig.cc"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-04-18 08:19:03 UTC], ["last_sign_in_at", 2017-04-18 06:07:44 UTC], ["sign_in_count", 13], ["updated_at", 2017-04-18 08:19:03 UTC], ["id", 1]]
+  [1m[35m (75.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 413ms (ActiveRecord: 81.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-18 10:19:03 +0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_navbar.html.erb (3.2ms)
+Completed 200 OK in 137ms (Views: 133.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/booklists" for 127.0.0.1 at 2017-04-18 10:19:08 +0200
+Processing by BooklistsController#index as HTML
+  Rendering booklists/index.html.erb within layouts/application
+  [1m[36mBooklist Load (0.5ms)[0m  [1m[34mSELECT  "booklists".* FROM "booklists" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[36mRatingCache Load (0.7ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 5], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 5], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.5ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 6], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 6], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.5ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 7], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 7], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.5ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 8], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 8], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.5ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 9], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 9], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.4ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 10], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 10], ["rateable_type", "Booklist"]]
+  Rendered booklists/index.html.erb within layouts/application (300.3ms)
+  Rendered layouts/_navbar.html.erb (3.3ms)
+Completed 200 OK in 564ms (Views: 413.4ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/images/thumb/missing.png" for 127.0.0.1 at 2017-04-18 10:19:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/images/thumb/missing.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.7ms)
+  Rendered collection of /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [34 times] (46.6ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.5ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (142.2ms)
+Started GET "/books" for 127.0.0.1 at 2017-04-18 10:20:15 +0200
+Processing by BooklistsController#index as HTML
+  Rendering booklists/index.html.erb within layouts/application
+  [1m[36mBooklist Load (1.0ms)[0m  [1m[34mSELECT  "booklists".* FROM "booklists" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[36mRatingCache Load (0.4ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 5], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 5], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.4ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 6], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 6], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.4ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 7], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 7], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.4ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 8], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 8], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.5ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 9], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 9], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.4ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 10], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 10], ["rateable_type", "Booklist"]]
+  Rendered booklists/index.html.erb within layouts/application (179.5ms)
+  Rendered layouts/_navbar.html.erb (3.4ms)
+Completed 200 OK in 351ms (Views: 308.7ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/images/thumb/missing.png" for 127.0.0.1 at 2017-04-18 10:20:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/images/thumb/missing.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered collection of /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [36 times] (24.0ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (73.4ms)
+Started GET "/images/thumb/missing.png" for 127.0.0.1 at 2017-04-18 10:20:17 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/images/thumb/missing.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered collection of /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [36 times] (26.7ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (84.2ms)
+Started GET "/books/1" for 127.0.0.1 at 2017-04-18 10:20:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/books/1"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered collection of /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [36 times] (24.6ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.5ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.9ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (73.7ms)
+Started GET "/books/11" for 127.0.0.1 at 2017-04-18 10:20:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/books/11"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.5ms)
+  Rendered collection of /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [36 times] (32.7ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.4ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (113.1ms)
+Started GET "/books/2" for 127.0.0.1 at 2017-04-18 10:20:37 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/books/2"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.7ms)
+  Rendered collection of /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [36 times] (39.5ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.1ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (121.7ms)
+Started GET "/bookslist/2" for 127.0.0.1 at 2017-04-18 10:20:46 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/bookslist/2"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered collection of /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [36 times] (32.4ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.0ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (99.3ms)
+Started GET "/bookslist/4" for 127.0.0.1 at 2017-04-18 10:20:51 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/bookslist/4"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered collection of /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [36 times] (25.8ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.9ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.4ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (77.8ms)
+Started GET "/" for 127.0.0.1 at 2017-04-18 10:20:54 +0200
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (19.8ms)
+  Rendered layouts/_navbar.html.erb (3.3ms)
+Completed 200 OK in 294ms (Views: 285.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/booklists" for 127.0.0.1 at 2017-04-18 10:20:57 +0200
+Processing by BooklistsController#index as HTML
+  Rendering booklists/index.html.erb within layouts/application
+  [1m[36mBooklist Load (4.3ms)[0m  [1m[34mSELECT  "booklists".* FROM "booklists" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[36mRatingCache Load (1.5ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 5], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 5], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (1.1ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 6], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 6], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (1.0ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 7], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 7], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.8ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 8], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 8], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.7ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 9], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 9], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.6ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 10], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 10], ["rateable_type", "Booklist"]]
+  Rendered booklists/index.html.erb within layouts/application (186.1ms)
+  Rendered layouts/_navbar.html.erb (3.4ms)
+Completed 200 OK in 346ms (Views: 318.5ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/images/thumb/missing.png" for 127.0.0.1 at 2017-04-18 10:20:58 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/images/thumb/missing.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered collection of /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [36 times] (30.4ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (85.3ms)
+Started GET "/booklists/6" for 127.0.0.1 at 2017-04-18 10:21:01 +0200
+Processing by BooklistsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBooklist Load (1.4ms)[0m  [1m[34mSELECT  "booklists".* FROM "booklists" WHERE "booklists"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering booklists/show.html.erb within layouts/application
+  [1m[36mComment Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "comments" WHERE "comments"."booklist_id" = ? LIMIT ?[0m  [["booklist_id", 6], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."booklist_id" = ?[0m  [["booklist_id", 6]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (24.9ms)
+  Rendered booklists/show.html.erb within layouts/application (130.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (6.2ms)
+Completed 200 OK in 301ms (Views: 266.8ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/images/thumb/missing.png" for 127.0.0.1 at 2017-04-18 10:21:01 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/images/thumb/missing.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered collection of /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [36 times] (30.7ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (81.3ms)
+Started GET "/images/thumb/missing.png" for 127.0.0.1 at 2017-04-18 10:21:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/images/thumb/missing.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered collection of /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [36 times] (26.4ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (81.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateActsAsBookableBookings (20170418082349)
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateActsAsBookableBookings < ActiveRecord::Migration[4.2] (called from block in execute at /home/calvin/.rvm/gems/ruby-2.4.0@global/gems/rake-12.0.0/lib/rake/task.rb:250)
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "acts_as_bookable_bookings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "bookable_type" varchar, "bookable_id" integer, "booker_type" varchar, "booker_id" integer, "amount" integer, "schedule" text, "time_start" datetime, "time_end" datetime, "time" datetime, "created_at" datetime)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_acts_as_bookable_bookings_bookable" ON "acts_as_bookable_bookings" ("bookable_type", "bookable_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_acts_as_bookable_bookings_bookable' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_acts_as_bookable_bookings_bookable' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_acts_as_bookable_bookings_booker" ON "acts_as_bookable_bookings" ("booker_type", "booker_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170418082349"]]
+  [1m[35m (120.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_acts_as_bookable_bookings_booker' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_acts_as_bookable_bookings_booker' AND type='index'
+[0m
+  [1m[35m (0.6ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_acts_as_bookable_bookings_bookable' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_acts_as_bookable_bookings_bookable' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_booklist_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_booklist_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_rates_on_rater_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_rates_on_rater_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_rates_on_rateable_id_and_rateable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_rates_on_rateable_id_and_rateable_type' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_rating_caches_on_cacheable_id_and_cacheable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_rating_caches_on_cacheable_id_and_cacheable_type' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.6ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/booklists" for 127.0.0.1 at 2017-04-18 10:27:19 +0200
+  
+NameError (undefined local variable or method `acts_as_booker' for User (call 'User.connection' to establish a connection):Class
+Did you mean?  acts_like?):
+  
+app/models/user.rb:8:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+config/routes.rb:7:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (30.0ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.9ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.4ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (79.9ms)
+Started GET "/booklists" for 127.0.0.1 at 2017-04-18 10:27:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BooklistsController#index as HTML
+  Rendering booklists/index.html.erb within layouts/application
+  [1m[36mBooklist Load (0.6ms)[0m  [1m[34mSELECT  "booklists".* FROM "booklists" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[36mRatingCache Load (0.5ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 5], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 5], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.4ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 6], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 6], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.4ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 7], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 7], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.4ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 8], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 8], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.4ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 9], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 9], ["rateable_type", "Booklist"]]
+  [1m[36mRatingCache Load (0.4ms)[0m  [1m[34mSELECT  "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = ? AND "rating_caches"."cacheable_type" = ? AND "rating_caches"."dimension" = ? LIMIT ?[0m  [["cacheable_id", 10], ["cacheable_type", "Booklist"], ["dimension", "rating"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "rates" WHERE "rates"."rater_id" = ? AND "rates"."dimension" = ? AND "rates"."rateable_id" = ? AND "rates"."rateable_type" = ?[0m  [["rater_id", 1], ["dimension", "rating"], ["rateable_id", 10], ["rateable_type", "Booklist"]]
+  Rendered booklists/index.html.erb within layouts/application (264.4ms)
+  Rendered layouts/_navbar.html.erb (6.3ms)
+Completed 200 OK in 5782ms (Views: 5671.0ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/images/thumb/missing.png" for 127.0.0.1 at 2017-04-18 10:27:56 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/images/thumb/missing.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered collection of /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [36 times] (30.9ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (30.1ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (115.5ms)
+Started GET "/booking" for 127.0.0.1 at 2017-04-18 10:52:09 +0200
+  
+ArgumentError (Missing :action key on routes definition, please check your routes.):
+  
+config/routes.rb:17:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.6ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendering /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/calvin/.rvm/gems/ruby-2.4.0@rails-4.2.7/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.8ms)
+Started GET "/booking" for 127.0.0.1 at 2017-04-18 10:52:34 +0200
+Processing by BookingController#index as HTML
+  Rendering booking/index.html.erb within layouts/application
+  Rendered booking/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (31.2ms)
+Completed 200 OK in 4098ms (Views: 4093.2ms | ActiveRecord: 2.6ms)
+
+

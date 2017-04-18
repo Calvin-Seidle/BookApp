@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'acts_as_bookable'
 gem 'ratyrate'
 gem 'paperclip', '~> 5.1'
 gem 'will_paginate'

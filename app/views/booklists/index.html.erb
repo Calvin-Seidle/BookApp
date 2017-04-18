@@ -33,6 +33,7 @@
           <%= link_to 'Show', booklist, class:"btn btn-info btn-xs" %>
           <%= link_to 'Edit', edit_booklist_path(booklist), class:"btn btn-warning btn-xs" %>
           <%= link_to 'Destroy', booklist, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-xs" %>
+          @user.book! @room
         </div>
       </div>
       <%= rating_for booklist, 'rating', disable_after_rate: true, enable_half: true, half_show: true, imdb_avg: true %>

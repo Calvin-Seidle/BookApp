@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410141029) do
+ActiveRecord::Schema.define(version: 20170418082349) do
+
+  create_table "acts_as_bookable_bookings", force: :cascade do |t|
+    t.string   "bookable_type"
+    t.integer  "bookable_id"
+    t.string   "booker_type"
+    t.integer  "booker_id"
+    t.integer  "amount"
+    t.text     "schedule"
+    t.datetime "time_start"
+    t.datetime "time_end"
+    t.datetime "time"
+    t.datetime "created_at"
+    t.index ["bookable_type", "bookable_id"], name: "index_acts_as_bookable_bookings_bookable"
+    t.index ["booker_type", "booker_id"], name: "index_acts_as_bookable_bookings_booker"
+  end
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
