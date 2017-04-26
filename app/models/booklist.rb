@@ -1,4 +1,5 @@
 class Booklist < ApplicationRecord
+	belongs_to :user, dependent: :destroy
 	has_many :comments, dependent: :destroy
 	acts_as_bookable
 

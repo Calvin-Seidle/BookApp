@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
  	ratyrate_rater
  	acts_as_booker
+ 	has_many :booklists
 end

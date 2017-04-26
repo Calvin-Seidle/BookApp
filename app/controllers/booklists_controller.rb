@@ -14,7 +14,7 @@ class BooklistsController < ApplicationController
 
   # GET /booklists/new
   def new
-    @booklist = Booklist.new
+    @booklist = current_user.booklists.build
   end
 
   # GET /booklists/1/edit
@@ -23,7 +23,7 @@ class BooklistsController < ApplicationController
 
   # POST /booklists
   def create
-    @booklist = Booklist.new(booklist_params)
+    @booklist = current_user.booklists.build(booklist_params)
 
     if @booklist.save
       redirect_to @booklist, notice: 'Booklist was successfully created.'

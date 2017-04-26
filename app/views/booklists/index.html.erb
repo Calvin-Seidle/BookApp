@@ -1,51 +1,55 @@
-<div class="well">
-  <h1 class="text-center">All Books</h1>
-</div>
- 
-<% @booklists.each do |booklist| %>
-  <div class="panel panel-info panel-index col-xs-4">
-    <div class="row panel-heading">          
-      <div class="col-xs-12 text-center"><h3 class="text-primary"><%= link_to booklist.title, booklist %></h3></div>
-    </div>
-    <div class="row panel-body">
-      <div class="col-xs-4" style="opacity:;">
-        <%= image_tag booklist.image.url(:thumb) %>
+<div class="panel panel-primary">
+
+  <div class="panel-heading">
+    <h1 class="text-center">All Books</h1>
+  </div>
+
+  <div class="panel-body"> 
+    <% @booklists.each do |booklist| %>
+      <div class="panel panel-info panel-index col-xs-4">
+        <div class="row panel-heading">          
+          <div class="col-xs-12 text-center"><h3 class="text-primary"><%= link_to booklist.title, booklist %></h3></div>
+        </div>
+        <div class="row panel-body">
+          <div class="col-xs-4" style="opacity:;">
+            <%= image_tag booklist.image.url(:thumb) %>
+          </div>
+          <div class="col-xs-8">
+            <div class="row">  
+              <div class="text-center"><h6 class="text-primary">Author:</h6> <%= booklist.author %></div>
+            </div>
+            <div class="row">
+              <div class="text-center"><h6 class="text-primary">ISBN:</h6> <%= booklist.ISBN %></div>
+            </div>
+            <div class="row">  
+              <div class="text-center"><h6 class="text-primary">Genre:</h6> <%= booklist.genre %></div>
+            </div>
+            <div class="row">          
+              <div class="text-center"><h6 class="text-primary">Pages:</h6> <%= booklist.pages %></div>
+            </div>
+            <div class="row">  
+              <div class="text-center"><h6 class="text-primary">Year:</h6> <%= booklist.year %></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6"> 
+              <%= link_to 'Show', booklist, class:"btn btn-info btn-xs" %>
+              <%= link_to 'Edit', edit_booklist_path(booklist), class:"btn btn-warning btn-xs" %>
+              <%= link_to 'Destroy', booklist, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-xs" %>
+            </div>
+          </div>
+          <%= rating_for booklist, 'rating', disable_after_rate: true, enable_half: true, half_show: true, imdb_avg: true %>
+        </div>
       </div>
-      <div class="col-xs-8">
-        <div class="row">  
-          <div class="text-center"><h6 class="text-primary">Author:</h6> <%= booklist.author %></div>
-        </div>
-        <div class="row">
-          <div class="text-center"><h6 class="text-primary">ISBN:</h6> <%= booklist.ISBN %></div>
-        </div>
-        <div class="row">  
-          <div class="text-center"><h6 class="text-primary">Genre:</h6> <%= booklist.genre %></div>
-        </div>
-        <div class="row">          
-          <div class="text-center"><h6 class="text-primary">Pages:</h6> <%= booklist.pages %></div>
-        </div>
-        <div class="row">  
-          <div class="text-center"><h6 class="text-primary">Year:</h6> <%= booklist.year %></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-6"> 
-          <%= link_to 'Show', booklist, class:"btn btn-info btn-xs" %>
-          <%= link_to 'Edit', edit_booklist_path(booklist), class:"btn btn-warning btn-xs" %>
-          <%= link_to 'Destroy', booklist, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-xs" %>
-        </div>
-      </div>
-      <%= rating_for booklist, 'rating', disable_after_rate: true, enable_half: true, half_show: true, imdb_avg: true %>
+    <% end %>
+  </div>
+  
+  <br>
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <%= link_to 'Add New Book', new_booklist_path, class:"btn btn-block btn-primary" %><br><br>
     </div>
   </div>
-<% end %>
-
-<br>
-<div class="row">
-  <div class="col-xs-6 col-xs-offset-3">
-    <%= link_to 'Add New Book', new_booklist_path, class:"btn btn-block btn-primary" %><br><br>
-  </div>
 </div>
-
 <%= will_paginate @booklists %>
  
